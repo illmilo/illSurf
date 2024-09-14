@@ -1,5 +1,0 @@
-/Users/illmil/CLionProjects/illSurf/cmake-build-debug/CMakeFiles/illSurf.dir
-/Users/illmil/CLionProjects/illSurf/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/illmil/CLionProjects/illSurf/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/illmil/CLionProjects/illSurf/cmake-build-debug/CMakeFiles/illSurf_autogen_timestamp_deps.dir
-/Users/illmil/CLionProjects/illSurf/cmake-build-debug/CMakeFiles/illSurf_autogen.dir

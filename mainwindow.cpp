@@ -9,6 +9,9 @@
 
 #include <QGraphicsDropShadowEffect>
 
+#include <QUrl>
+#include <QDesktopServices>
+#include <QVBoxLayout>
 
 mainwindow::mainwindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::mainwindow) {
@@ -22,8 +25,31 @@ mainwindow::mainwindow(QWidget *parent) :
     shadow->setYOffset(4);
     shadow->setColor(QColor(20,20,20));
     ui->lineEdit->setGraphicsEffect(shadow);
+
+    webView = new QWebEngineView(this);
+    webView->hide();
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(webView);
+    ui->centralwidget->setLayout(layout);
+
+    connect(ui->lineEdit, &QLineEdit::returnPressed, this, &mainwindow::handleSearch);
+    connect(ui->pushButton, &QPushButton::clicked, this, &mainwindow::handleSearch);
 }
 
 mainwindow::~mainwindow() {
     delete ui;
+}
+
+void mainwindow::handleSearch() {
+    QString query = ui->lineEdit->text();
+    if (!query.isEmpty()) {
+        if (query.startsWith("http://") || query.startsWith("https://"))
+            webView->setUrl(QUrl(query));
+        else {
+            QString searchUrl = QString("https://www.google.com/search?q=%1").arg(query);
+            webView->setUrl(QUrl(searchUrl));
+        }
+        webView->show();
+    }
 }

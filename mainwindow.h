@@ -6,7 +6,7 @@
 #define ILLSURF_MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <QtWebEngineWidgets/QWebEngineView>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class mainwindow; }
@@ -20,8 +20,12 @@ public:
 
     ~mainwindow() override;
 
+private slots:
+    void handleSearch();
+
 private:
     Ui::mainwindow *ui;
+    QWebEngineView *webView;
 };
 
 

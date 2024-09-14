@@ -11,6 +11,7 @@ find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
+        WebEngineWidgets
         REQUIRED)
 
 add_executable(illSurf main.cpp
@@ -21,5 +22,6 @@ target_link_libraries(illSurf
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        Qt::WebEngineWidgets
 )
 
